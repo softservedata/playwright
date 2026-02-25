@@ -1,0 +1,53 @@
+1.	TypeScript Basics for Playwright
+Types, interfaces, tsconfig, Page/Locator typing
+
+2.	Playwright Test Runner
+Expect API, test structure, config, fixtures
+
+3.	Locators & Auto-waiting
+locator(), getByRole(), getByTestId(), asserts
+
+4.	Playwright & AI (Agents)
+AI-assisted testing, smart locators, self-healing тестів; AI-powered code generation
+
+5.	Test Generation via AI
+AI test cases, AI POM generation, prompt engineering
+
+6.	Page Object Model Basics
+Page structure, locators, navigation, methods
+
+7.	Component Object Model
+Components, nested objects, component reuse
+
+8.	Advanced POM Patterns
+Fluent API, BasePage, Lazy Locators, inheritance
+
+9.	Fixtures. Advanced
+custom fixtures, worker fixtures, sharing browser
+
+10.	Parameterized tests
+Test.each, data-driven, projects, parameter config
+
+11.	Parallelism and Cross-browser
+Workers, chromium/webkit/firefox, mobile emulation
+
+12.	API Testing
+APIRequestContext, headers, auth, response validation
+
+13.	Cookies / Storage / Sessions
+StorageState, pre-auth, context cookies
+
+14.	API Mocking. Route / Fulfill
+Request interception, response spoofing, fake backend
+
+15.	Network Mocking & Conditions
+Offline mode, slow network, mocking static resources
+
+16.	Working with Files
+Upload, download, read and check files
+
+17.	Reporting at Playwright
+HTML report, traces, screenshots, video
+
+18.	Allure Reporting
+Steps, attachments, integration with CI
