@@ -46,7 +46,8 @@ Please fill out the form, describe your situation, and complete the test assignm
 
 Free enrollment can be granted for only one course.
 
-*Services are provided online by LLC “SoftServe Academy”. Example of an invoice‑contract can be found in the provided link.*
+\* Services are provided online by LLC “SoftServe Academy”.
+Example of an invoice‑contract can be found in the provided [link](https://career.softserveinc.com/uploads/files/%D0%94%D0%BE%D0%B3\_%D1%80%D0%B0%D1%85\_%D0%A1%D0%A1%D0%90\_%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4\_%D0%BD%D0%B0\_%D1%81%D0%B0%D0%B8%CC%86%D1%82\_05.12.25.pdf).
 
 # COURSE DETAILS
 ## COURSE FORMAT & SCHEDULE
