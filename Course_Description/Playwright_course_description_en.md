@@ -1,8 +1,8 @@
 # AI‑Powered Test Automation with Playwright
 
 This course is designed for specialists who want to master modern web application test automation using **Playwright** (JavaScript/TypeScript) and AI‑powered tools that accelerate and increase the stability of tests.
-To study effectively, you should already know software testing theory and the basics of JavaScript/TypeScript, HTML/CSS, Git, and SQL.
-You can gain these skills in the “Fundamentals of Test Automation” and “Fundamentals of Databases” courses.
+To study effectively, you should already know software testing theory and the basics of JavaScript/TypeScript, HTML/CSS, and Git.
+You can gain these skills in the “Testing Fundamentals and Intro to IT”, “Fundamentals of Test Automation” and “Javascript/Typescript Fundamentals” courses.
 
 ## WHY YOU SHOULD LEARN TEST AUTOMATION:
 Test automation is a crucial part of fast and efficient software development.
@@ -155,8 +155,8 @@ Example of an invoice‑contract can be found in the provided [link](https://car
 
 # FAQs
 ### 1. Are there any prerequisites?
-You should know the basics of JavaScript/TypeScript, HTML/CSS, Git, SQL, and software testing theory.
-You can learn these in the “Fundamentals of Test Automation” and “Fundamentals of Databases” courses.
+You should know the basics of JavaScript/TypeScript, HTML/CSS, Git, and software testing theory.
+You can learn these in the Testing Fundamentals and Intro to IT”, “Fundamentals of Test Automation” and “Javascript/Typescript Fundamentals” courses.
 This course focuses on advanced Playwright automation and is practice‑oriented.
 
 ### 2. Can I study offline or in recordings?
