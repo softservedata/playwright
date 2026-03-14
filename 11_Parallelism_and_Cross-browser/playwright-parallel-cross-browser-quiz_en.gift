@@ -1,0 +1,163 @@
+
+// Playwright Parallel Execution & Cross-Browser — Quiz (20 questions, GIFT, English)
+
+::Q1: What does a Playwright worker represent during a test run?::
+{
+=An independent Node.js process with its own browser instance
+~A single BrowserContext reused by all tests
+~A headless tab inside the same process
+~A dedicated OS-level container
+}
+
+::Q2: By default, how are tests scheduled across workers and within a file?::
+{
+=Files are distributed across workers in parallel; tests inside a file run sequentially in one worker
+~Every test runs in its own worker by default
+~All tests run serially across the suite
+~Tests within a file run in parallel by default
+}
+
+::Q3: Which config enables fully parallel execution where each test may run in its own worker?::
+{
+=fullyParallel: true
+~workers: 1
+~test.describe.serial
+~retries: 2
+}
+
+::Q4: What isolation does Playwright guarantee per test?::
+{
+=A fresh BrowserContext and Page (and request context) per test
+~A unique database schema per test
+~A brand-new browser binary per test
+~A brand-new Node.js process per test
+}
+
+::Q5: Which of the following is unsafe for parallel tests without isolation?::
+{
+=Sharing and mutating the same database record across tests
+~Creating unique users per test via API
+~Generating IDs using workerIndex
+~Using read-only fixtures
+}
+
+::Q6: How can you set the number of workers at runtime?::
+{
+=Run with --workers=N (e.g., npx playwright test --workers=8)
+~Only by editing playwright.config.ts
+~Set page.setWorkers(N) inside tests
+~Set os.cpus in the Node REPL
+}
+
+::Q7: What does test.describe.serial guarantee?::
+{
+=Tests in the block run sequentially; later tests are skipped if a prior one fails
+~Tests in the block run in separate browsers
+~Tests in the block retry automatically
+~Tests in the block are pinned to Chromium
+}
+
+::Q8: What is the primary purpose of Playwright “Projects” in cross-browser testing?::
+{
+=To run the same tests across different browsers/devices/environments
+~To shard tests within a file
+~To replace retries with parallelism
+~To disable fixtures globally
+}
+
+::Q9: Which CLI command runs tests in two browsers, Chromium and Firefox?::
+{
+=`npx playwright test --project=chromium --project=firefox`
+~`npx playwright test --browsers=chromium,firefox`
+~`npx playwright test --matrix=chromium+firefox`
+~`npx playwright test --multi=2`
+}
+
+::Q10: How can a test adapt its behavior based on the current browser?::
+{
+=Use the browserName fixture (e.g., if (browserName === 'firefox') { ... })
+~Check process.env.BROWSER
+~Parse the user agent manually in the page
+~It is not possible to know the browser
+}
+
+::Q11: What’s the recommended way to install browsers for CI on Linux with all dependencies?::
+{
+=`npx playwright install --with-deps`
+~`npx playwright install-all`
+~`npm i -g playwright-browsers`
+~`npx playwright setup`
+}
+
+::Q12: Which statement about mobile emulation is TRUE?::
+{
+=It emulates viewport, DPR, touch, and UA, but not real device performance
+~It requires a real Android or iOS device
+~It cannot simulate touch events
+~It automatically provides native pinch‑zoom gestures
+}
+
+::Q13: How do you list and use built-in device descriptors like iPhone or Pixel?::
+{
+=Import devices from @playwright/test and spread devices['iPhone 15'] in project use
+~Set --device='iPhone 15' on the CLI
+~Enable mobileMode: true in config
+~Install a separate @playwright/devices package
+}
+
+::Q14: What is a practical way to avoid visual snapshot mismatches across browsers?::
+{
+=Use per-project snapshotPathTemplate or separate snapshot files per browser
+~Disable screenshots entirely
+~Use a single snapshot for all browsers
+~Increase maxDiffPixelRatio to 1.0
+}
+
+::Q15: Which difference often requires browser‑specific handling?::
+{
+=Date/time input formats and file uploads (e.g., WebKit visibility requirement)
+~Basic click actions on buttons
+~Static text content rendering
+~URL navigation via page.goto
+}
+
+::Q16: What’s the purpose of sharding in CI?::
+{
+=Split the suite into N parts so different runners execute different shards in parallel
+~Run visual and API tests separately
+~Retry only failing tests
+~Limit tests to a single worker
+}
+
+::Q17: Which GitHub Actions step speeds up repeated CI runs by reusing browser binaries?::
+{
+=Caching ~/.cache/ms-playwright before running npx playwright install
+~Using a larger Ubuntu VM
+~Running headed mode only
+~Disabling traces
+}
+
+::Q18: How can you quickly smoke‑test across all projects while keeping full regression only on Chromium?::
+{
+=Configure a smoke project for each browser and a full regression project for Chromium with dependencies
+~Run all projects with --grep-invert
+~Use --headed for smoke
+~Force workers: 1 for non‑Chromium
+}
+
+::Q19: Which setting runs tests in parallel within a single file?::
+{
+=test.describe.configure({ mode: 'parallel' })
+~fullyParallel: false
+~workers: 1
+~retries: 2
+}
+
+::Q20: What is a correct statement about test isolation in Playwright?::
+{
+=Each test gets a fresh context and page; module-level mutable vars can still leak between tests in the same worker
+~All tests share a single context by default
+~Contexts are shared across workers
+~Pages persist across tests to speed up execution
+}
+

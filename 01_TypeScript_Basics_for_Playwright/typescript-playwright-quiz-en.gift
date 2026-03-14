@@ -1,0 +1,162 @@
+
+// TypeScript Basics for Playwright — Single-choice (GIFT, English)
+
+::Q1: Why use TypeScript with Playwright?::
+What is the main advantage of TypeScript in Playwright tests? {
+=Detecting errors at compile time and better autocomplete
+~Faster execution in the browser
+~Ability to run tests without Node.js
+~Built‑in support for mobile emulators
+}
+
+::Q2: Minimum tsconfig target for Playwright::
+Which value of the `target` option is recommended in the example? {
+=ES2020
+~ES5
+~ES2015
+~ESNext
+}
+
+::Q3: Strict typing mode::
+What value of `strict` is recommended to avoid null/undefined issues? {
+=true
+~false
+~"auto"
+~"warn"
+}
+
+::Q4: moduleResolution in a Playwright project::
+Which `moduleResolution` value is used to correctly resolve `@playwright/test`? {
+=node
+~bundler
+~classic
+~nodenext
+}
+
+::Q5: Page vs Locator types::
+What best describes the difference between `Page` and `Locator`? {
+=`Page` — a browser tab; `Locator` — a DOM element query
+~`Page` — an HTTP response; `Locator` — a browser context
+~`Page` — a CSS selector; `Locator` — a page URL
+~`Page` — cookie storage; `Locator` — a network interceptor
+}
+
+::Q6: When to use Locator instead of ElementHandle?::
+Which approach is recommended by modern Playwright API? {
+=Use `Locator`, since `ElementHandle` is discouraged for most scenarios
+~Always use `ElementHandle`, because it is more stable
+~Use `Locator` only for forms, everything else — `ElementHandle`
+~It doesn't matter; both are equivalent
+}
+
+::Q7: Can return null::
+Which `Locator` method may return `string | null` and requires null handling? {
+=textContent()
+~innerText()
+~inputValue()
+~isVisible()
+}
+
+::Q8: Safer than any::
+Which TypeScript type is considered safer than `any` because it requires narrowing? {
+=unknown
+~never
+~void
+~object
+}
+
+::Q9: Optional parameters::
+How do you mark an optional function parameter in TypeScript? {
+=`param?: Type`
+~`param!: Type`
+~`param??: Type`
+~`param|: Type`
+}
+
+::Q10: Browser union type::
+Which value is NOT part of the union type `BrowserName = 'chromium' | 'firefox' | 'webkit'`? {
+=safari
+~chromium
+~firefox
+~webkit
+}
+
+::Q11: Interface vs type alias::
+Which is better suited for describing object shapes and supports `extends`? {
+=interface
+~type alias
+~enum
+~class
+}
+
+::Q12: Utility type Partial::
+What does `Partial<T>` do? {
+=Makes all properties of T optional
+~Removes specified keys from T
+~Makes all properties required
+~Converts an array into a tuple
+}
+
+::Q13: Utility type Pick::
+Which statement is correct about `Pick<T, K>`? {
+=Creates a type with a subset of properties K from T
+~Creates a type without keys K from T
+~Makes all properties optional
+~Converts all values into `unknown`
+}
+
+::Q14: Typing API responses::
+Which is a correct way to declare a generic API response interface? {
+=`interface ApiResponse<T> { data: T; status: number; message: string; timestamp: Date; }`
+~`type ApiResponse = { data: any; code: string }`
+~`interface ApiResponse { payload: T[] }`
+~`type ApiResponse<T> = T & number`
+}
+
+::Q15: Generics in functions::
+What does `function getFirst<T>(arr: T[]): T` return? {
+=The first element of an array of type T
+~The length of the array as number
+~The first two elements as an array
+~Always a string
+}
+
+::Q16: Handling token from Response::
+What is the return type of a function that waits for `/api/login` and extracts `token`, which may be missing? {
+=`Promise<string | null>`
+~`Promise<string>`
+~`string | null`
+~`Promise<void>`
+}
+
+::Q17: Importing Playwright types::
+How do you import the `Page` and `Locator` types? {
+=`import { Page, Locator } from '@playwright/test';`
+~`import { Page, Locator } from 'playwright-core';`
+~`import Page, { Locator } from '@playwright/test';`
+~`import * as Page from '@playwright/test';`
+}
+
+::Q18: Configuring paths::
+Why configure `baseUrl` and `paths` in `tsconfig.json`? {
+=To enable clean imports using aliases like `@pages/LoginPage`
+~To enable headless mode in the browser
+~To reduce test execution time
+~To reduce screenshot size
+}
+
+::Q19: Typing Playwright fixtures::
+Which construct allows extending `test` with typed fixtures? {
+=`const test = base.extend<Pages>({ ... })`
+~`const test = base.use<Pages>({ ... })`
+~`const test = extend.base<Pages>({ ... })`
+~`const test: Pages = base.extend({ ... })`
+}
+
+::Q20: Common async mistake::
+Why is the function `function getPageTitle(page: Page) { return page.title(); }` problematic? {
+=It returns a `Promise<string>` without explicit async/return type, which is misleading
+~It blocks the Node.js event loop
+~`title()` returns a number, not a string
+~It cannot be used in tests
+}

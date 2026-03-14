@@ -1,0 +1,140 @@
+
+::Q1::What is one key advantage of Allure over Playwright’s built‑in HTML report? {
+=Cross‑run history and trend charts
+~Local trace viewing only
+~Single‑page report only
+~Lack of categorization features
+}
+
+::Q2::Which npm package provides the Playwright adapter for Allure reporting? {
+=allure-playwright
+~allure-js
+~allure-core
+~playwright-allure
+}
+
+::Q3::Where does Allure write raw JSON test results by default? {
+=allure-results/
+~allure-report/
+~test-results/
+~output/
+}
+
+::Q4::Which Allure annotation represents a high-level grouping such as “Checkout” or “Authentication”? {
+=feature
+~owner
+~severity
+~parameter
+}
+
+::Q5::Which Playwright configuration setting is recommended for traces in CI when using Allure? {
+=on-first-retry
+~on
+~off
+~retain-on-failure
+}
+
+::Q6::Which command generates an Allure HTML report from allure-results/? {
+=npx allure generate allure-results --clean -o allure-report
+~npx allure open allure-results
+~npx allure build
+~npx playwright test --reporter=allure
+}
+
+::Q7::Which Allure feature allows representing test steps as a hierarchical tree? {
+=Nested steps using allure.step()
+~test.describe()
+~page.step()
+~workflow groups
+}
+
+::Q8::What Allure metadata tag should be used to indicate the criticality of a test? {
+=severity
+~tag
+~issue
+~owner
+}
+
+::Q9::Which of the following is NOT a valid Allure severity level? {
+~CRITICAL
+~BLOCKER
+=IMPORTANT
+~MINOR
+}
+
+::Q10::Which attachment type is valid for Allure? {
+=ContentType.JSON
+~ContentType.SCRIPT
+~ContentType.DOC
+~ContentType.BINARY
+}
+
+::Q11::Where should history data be copied before generating the next Allure report to preserve trends? {
+=allure-report/history → allure-results/history
+~test-results → allure-results/history
+~history → allure-output/history
+~results/history → playwright-report/history
+}
+
+::Q12::Which Allure file defines custom defect categories? {
+=categories.json
+~severity.json
+~defects.map
+~allure-config.yaml
+}
+
+::Q13::Which CI step ensures trend data persists across runs? {
+=Copy previous history from gh-pages before report generation
+~Delete all history before build
+~Disable Allure history mode
+~Store history only locally
+}
+
+::Q14::Which Allure API is used to attach arbitrary files such as logs, screenshots, or HTML? {
+=allure.attachment()
+~allure.addFile()
+~test.attachFile()
+~allure.addResource()
+}
+
+::Q15::Which Playwright API automatically forwards attachments to Allure when allure-playwright is installed? {
+=testInfo.attach
+~page.attach
+~context.attach
+~reporter.attach
+}
+
+::Q16::Which statement about Allure steps is correct? {
+=They make tests readable and show exactly where failures occur
+~They slow down Playwright tests considerably
+~They are only visible in the terminal
+~They replace Playwright expect() assertions
+}
+
+::Q17::Which CI system requires adding a dedicated Allure plugin to visualize reports directly inside build logs? {
+=Jenkins
+~GitHub Actions
+~GitLab CI
+~Azure Pipelines
+}
+
+::Q18::What is the purpose of environment.properties in Allure? {
+=To store environment info like browser, base URL, build number
+~To configure Playwright retries
+~To store performance metrics
+~To list contributors of the test suite
+}
+
+::Q19::Which Allure feature helps classify recurring test failures such as locator errors or timeouts? {
+=Custom categories
+~Test tags
+~Feature sections
+~Console logs
+}
+
+::Q20::Which Playwright artifact types can Allure automatically attach on failure when configured? {
+=Screenshots and videos
+~Only DOM snapshots
+~Only console logs
+~Only JSON test data
+}

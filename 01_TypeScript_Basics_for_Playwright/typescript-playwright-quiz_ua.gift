@@ -1,0 +1,162 @@
+
+// TypeScript Basics for Playwright — Single-choice (GIFT)
+
+::Q1: Навіщо використовувати TypeScript з Playwright?::
+Яка головна перевага TypeScript у тестах Playwright? {
+=Виявлення помилок на етапі компіляції та кращий автокомпліт
+~Швидше виконання тестів у браузері
+~Можливість запускати тести без Node.js
+~Вбудована підтримка мобільних емуляторів
+}
+
+::Q2: Мінімальна ціль компіляції у tsconfig для Playwright::
+Яке значення опції `target` рекомендовано у прикладі? {
+=ES2020
+~ES5
+~ES2015
+~ESNext
+}
+
+::Q3: Режим суворої типізації::
+Яке значення `strict` рекомендується для уникнення проблем із null/undefined? {
+=true
+~false
+~"auto"
+~"warn"
+}
+
+::Q4: moduleResolution у Playwright-проєкті::
+Яке значення `moduleResolution` використано, щоб коректно резолвити `@playwright/test`? {
+=node
+~bundler
+~classic
+~nodenext
+}
+
+::Q5: Типи Page та Locator::
+Що найкраще описує різницю між `Page` та `Locator`? {
+=`Page` — вкладка браузера; `Locator` — запит до елемента DOM
+~`Page` — HTTP-відповідь; `Locator` — контекст браузера
+~`Page` — селектор CSS; `Locator` — URL сторінки
+~`Page` — cookie storage; `Locator` — мережевий інтерцептор
+}
+
+::Q6: Коли краще використовувати Locator замість ElementHandle?::
+Який підхід рекомендується сучасним API Playwright? {
+=Використовувати `Locator`, оскільки `ElementHandle` застаріває для більшості сценаріїв
+~Завжди використовувати `ElementHandle`, бо він стабільніший
+~Використовувати `Locator` лише для форм, а інше — `ElementHandle`
+~Це не має значення, обидва еквівалентні
+}
+
+::Q7: Повертає null::
+Який метод `Locator` може повертати `string | null` і потребує обробки null? {
+= textContent()
+~ innerText()
+~ inputValue()
+~ isVisible()
+}
+
+::Q8: Безпечніший за any::
+Який тип у TypeScript вважається безпечнішим за `any` і потребує звуження типу? {
+=unknown
+~never
+~void
+~object
+}
+
+::Q9: Опційні параметри::
+Як позначити опційний параметр функції у TypeScript? {
+=`param?: Type`
+~`param!: Type`
+~`param??: Type`
+~`param|: Type`
+}
+
+::Q10: Union-тип для браузера::
+Яке значення НЕ входить до union-типу `BrowserName = 'chromium' | 'firefox' | 'webkit'`? {
+=safari
+~chromium
+~firefox
+~webkit
+}
+
+::Q11: Інтерфейс vs тип-аліас::
+Що краще підходить для опису форми об’єкта та підтримує розширення (`extends`)? {
+=interface
+~type alias
+~enum
+~class
+}
+
+::Q12: Utility type Partial::
+Що робить `Partial<T>`? {
+=Робить усі властивості типу T необов’язковими
+~Видаляє вказані ключі з типу T
+~Змушує всі властивості бути обов’язковими
+~Перетворює масив на кортеж
+}
+
+::Q13: Utility type Pick/Omit::
+Яке твердження правильне щодо `Pick<T, K>`? {
+=Створює тип із підмножиною властивостей K з T
+~Створює тип без властивостей K з T
+~Перетворює всі значення на опційні
+~Змінює тип значень на `unknown`
+}
+
+::Q14: Типізація відповіді API::
+Як коректно оголосити узагальнений інтерфейс відповіді API з даними типу T? {
+=`interface ApiResponse<T> { data: T; status: number; message: string; timestamp: Date; }`
+~`type ApiResponse = { data: any; code: string }`
+~`interface ApiResponse { payload: T[] }`
+~`type ApiResponse<T> = T & number`
+}
+
+::Q15: Генерики у функціях::
+Що повертає функція `function getFirst<T>(arr: T[]): T`? {
+=Перший елемент масиву типу T
+~Довжину масиву як number
+~Масив перших двох елементів
+~Завжди рядок
+}
+
+::Q16: Обробка токена з Response::
+Який тип повернення має функція, що чекає на `/api/login` і дістає `token`, коли він може бути відсутній? {
+=`Promise<string | null>`
+~`Promise<string>`
+~`string | null`
+~`Promise<void>`
+}
+
+::Q17: Правильний імпорт типів Playwright::
+Як імпортувати типи `Page` та `Locator`? {
+=`import { Page, Locator } from '@playwright/test';`
+~`import { Page, Locator } from 'playwright-core';`
+~`import Page, { Locator } from '@playwright/test';`
+~`import * as Page from '@playwright/test';`
+}
+
+::Q18: Конфігурація шляхів::
+Навіщо задавати `baseUrl` та `paths` у `tsconfig.json`? {
+=Для чистих імпортів з аліасами на кшталт `@pages/LoginPage`
+~Щоб увімкнути headless-режим браузера
+~Щоб скоротити час виконання тестів
+~Щоб зменшити розмір скріншотів
+}
+
+::Q19: Типізація фікстур Playwright::
+Яка конструкція дозволяє розширити `test` власними фікстурами зі статичною типобезпекою? {
+=`const test = base.extend<Pages>({ ... })`
+~`const test = base.use<Pages>({ ... })`
+~`const test = extend.base<Pages>({ ... })`
+~`const test: Pages = base.extend({ ... })`
+}
+
+::Q20: Часта помилка з async::
+Чому функція `function getPageTitle(page: Page) { return page.title(); }` є проблемною? {
+=Вона повертає `Promise<string>` без явного async/типу, що вводить в оману
+~Вона блокує цикл подій Node.js
+~Метод `title()` повертає `number`, а не `string`
+~Її не можна викликати в тесті
+}

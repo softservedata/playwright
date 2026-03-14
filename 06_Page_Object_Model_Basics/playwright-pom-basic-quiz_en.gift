@@ -1,0 +1,163 @@
+
+// Playwright Basic POM — Quiz (20 questions, GIFT, English)
+
+::Q1: What is the primary purpose of the Page Object Model (POM)?::
+{
+=To abstract UI structure and interactions into reusable classes
+~To record screenshots during tests
+~To eliminate TypeScript usage
+~To bypass Playwright auto-waiting
+}
+
+::Q2: Which POM principle ensures tests never reference raw selectors?::
+{
+=Encapsulation
+~Reactivity
+~Lazy evaluation
+~Parallelization
+}
+
+::Q3: What happens when selectors change in a POM-based project?::
+{
+=You update them in one place only
+~You must update every test file
+~Playwright automatically updates them
+~Changes break the BasePage class only
+}
+
+::Q4: What should Page Objects NOT contain?::
+{
+=Assertions
+~Locators
+~Navigation methods
+~Action methods
+}
+
+::Q5: Which folder typically stores POM classes?::
+{
+=pages/
+~fixtures/
+~tests/
+~test-data/
+}
+
+::Q6: What is the role of BasePage?::
+{
+=Provide shared navigation, helpers, and abstract URL contract
+~Store global environment variables
+~Run end‑to‑end tests automatically
+~Define global CSS styles
+}
+
+::Q7: What must every Page Object implement from BasePage?::
+{
+=The url getter
+~A constructor with no arguments
+~A method for screenshots
+~A static context initializer
+}
+
+::Q8: Which locator type has the highest priority in POM design?::
+{
+=getByRole()
+~getByTestId()
+~CSS selectors
+~XPath
+}
+
+::Q9: Which type of locator belongs as a CLASS PROPERTY?::
+{
+=Static locators that never change
+~Locators that depend on parameters
+~Locators created after navigation
+~Randomized dynamic selectors
+}
+
+::Q10: What is the correct purpose of dynamic locator methods?::
+{
+=They generate locators that take parameters (e.g., name, index)
+~They store reusable CSS values
+~They disable strict mode
+~They override BasePage methods
+}
+
+::Q11: What should action method names express?::
+{
+=User intent (e.g., login, addProductToCart)
+~Exact DOM operations (e.g., clickButton1)
+~Internal HTML structure
+~CSS classes used on the page
+}
+
+::Q12: Which is an example of a GOOD action method?::
+{
+=async applyCoupon(code: string)
+~async clickButtonSubmit()
+~async locator123()
+~async runAllSteps()
+}
+
+::Q13: What are getter methods used for?::
+{
+=Extracting values or state from the page
+~Executing navigation events
+~Submitting forms
+~Performing retries
+}
+
+::Q14: What is a boolean state‑checking method convention?::
+{
+=is + state (e.g., isErrorVisible)
+~check + status
+~bool + field
+~should + state
+}
+
+::Q15: What is the purpose of fixtures in POM‑based tests?::
+{
+=To inject Page Object instances into tests
+~To execute API calls
+~To run parallel browsers
+~To validate snapshot baselines
+}
+
+::Q16: In fixture registration, what does use(...) provide?::
+{
+=Lifespan control for creating and cleaning objects per test
+~A global singleton instance
+~Automatic assertion injection
+~Access to browser cookies
+}
+
+::Q17: What is a recommended import style when using tsconfig path aliases?::
+{
+=import { LoginPage } from '@pages/LoginPage';
+~import LoginPage from '../../../../LoginPage';
+~import LoginPage = require('pages/LoginPage');
+~import * from 'LoginPage';
+}
+
+::Q18: What is a typical responsibility of an action like login(credentials)?::
+{
+=Fill fields and optionally submit the form
+~Validate form errors
+~Parse API requests
+~Modify BasePage URL
+}
+
+::Q19: What is a correct example of a dynamic locator in ProductPage?::
+{
+=getReviewByAuthor(authorName)
+~productTitle
+~quantityInput
+~placeOrderButton
+}
+
+::Q20: What is the core benefit of using POM in large test suites?::
+{
+=Scalability and maintainability with minimal selector duplication
+~Faster browser launch times
+~Automatic browser context sharing
+~Decreased network latency
+}
+

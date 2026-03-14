@@ -1,0 +1,160 @@
+::Q01_Playwright_Test_Runner::
+What does the Playwright Test Runner provide besides executing tests? {
+=Built-in test discovery, parallelism, fixtures, reporting, and retries
+~Only a thin wrapper over browser automation
+~A replacement for Node.js runtime
+~A CI/CD pipeline tool
+}
+
+::Q02_Runs_Playwright_Tests::
+Which command runs Playwright tests in headed mode? {
+=npx playwright test --headed
+~npx playwright run --ui
+~npx playwright headed
+~npx playwright test --show
+}
+
+::Q03_Purpose_test.describe::
+What is the purpose of test.describe()? {
+=To group related tests into logical sections
+~To declare global setup logic
+~To disable parallel execution
+~To create a new Playwright project
+}
+
+::Q04_Before_Individual_Test::
+Which hook runs before every individual test? {
+=test.beforeEach
+~test.beforeAll
+~test.afterAll
+~test.afterEach
+}
+
+::Q05_test.only()::
+What does test.only() do? {
+=Runs only that test and ignores others in the file
+~Skips the test
+~Retries the test until it passes
+~Marks the test as expected to fail
+}
+
+::Q06_Auto-waits_Condition::
+Which assertion auto-waits until the condition is met? {
+=expect(locator).toBeVisible()
+~expect(value).toBe(5)
+~expect.soft(value).toMatch(/x/)
+~expect(page).toMatchSnapshot()
+}
+
+::Q07_expect.soft()::
+What does expect.soft() allow? {
+=Collecting multiple assertion failures without stopping the test
+~Retrying the whole test automatically
+~Running assertions in parallel
+~Skipping assertions based on browser
+}
+
+::Q08_Controls_Parallel::
+Which config option controls the number of parallel workers? {
+=workers
+~retries
+~timeout
+~expect.timeout
+}
+
+::Q09_FullyParallel::
+What does fullyParallel: true enable? {
+=All tests run in parallel, even within the same file
+~Each file runs serially by default
+~Only browsers run in parallel, not tests
+~Parallel screenshots during execution
+}
+
+::Q10_Browser/Device_Settings?::
+Which configuration section controls browser/device settings? {
+=use
+~projects
+~reporter
+~hooks
+}
+
+::Q11_Playwright_Config::
+What is the purpose of projects in Playwright config? {
+=To run tests across multiple browsers or environments
+~To define global hooks
+~To organize files on disk
+~To automatically generate documentation
+}
+
+::Q12_StorageState::
+What does storageState allow? {
+=Reusing authenticated browser session state across tests
+~Saving video and trace artifacts
+~Controlling where screenshots are stored
+~Injecting environment variables
+}
+
+::Q13_test.describe.serial()::
+What does test.describe.serial() enforce? {
+=Tests inside run sequentially, not in parallel
+~Tests inside run multiple times
+~Tests inside are skipped
+~Tests inside cannot contain hooks
+}
+
+::Q14_Retries_in_Config::
+What does retries in config define? {
+=How many times to retry a failing test
+~Maximum number of parallel workers
+~Number of browser contexts per worker
+~How many assertions can fail softly
+}
+
+::Q15_test.skip()::
+What does test.skip() do? {
+=Marks the test as skipped and prevents execution
+~Runs the test only in specific environments
+~Causes the test to retry indefinitely
+~Marks the test as critical
+}
+
+::Q16_HTTP_API_testing::
+Which fixture provides the HTTP API testing context? {
+=request
+~page
+~context
+~browser
+}
+
+::Q17_testInfo.retry::
+What does testInfo.retry indicate? {
+=Current retry attempt index (0-based)
+~Total number of retries allowed
+~Milliseconds spent waiting for assertions
+~Whether the test is soft-failed
+}
+
+::Q18_Setup_Project::
+What is the purpose of a setup project? {
+=To run authentication or DB seeding before other projects
+~To speed up browser launch
+~To disable default fixtures
+~To collect coverage reports
+}
+
+::Q19_ignoreHTTPSErrors::
+What does ignoreHTTPSErrors: true do? {
+=Allows navigating to HTTPS sites with invalid certificates
+~Ignores failed API responses
+~Skips all failing SSL tests
+~Prevents browser redirects
+}
+
+::Q20_Trace::
+What does trace: 'on-first-retry' enable? {
+=Trace recording only on the first retry of a failing test
+~Tracing every test execution
+~Tracing only test.describe blocks
+~Tracing disabled globally
+}
+

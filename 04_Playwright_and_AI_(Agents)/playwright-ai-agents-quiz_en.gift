@@ -1,0 +1,163 @@
+
+// Playwright + AI Agents — Quiz (20 questions, GIFT, English)
+
+::Q1: What is Layer 4 in the AI testing landscape?::
+{
+=Autonomous agents that decide what to test and navigate UIs independently
+~Self-healing locators that repair selectors
+~AI-assisted authoring tools like Copilot
+~Basic codegen tools like playwright codegen
+}
+
+::Q2: Which Playwright tool records user actions and generates code?::
+{
+=playwright codegen
+~playwright run
+~playwright inspector
+~playwright tracegen
+}
+
+::Q3: What is a major limitation of raw codegen output?::
+{
+=It often produces fragile CSS/nth selectors requiring refactoring
+~It cannot generate tests for navigation
+~It only works with Firefox
+~It produces code only in Java
+}
+
+::Q4: Which locator type is preferred over CSS nth-child selectors?::
+{
+=getByRole()
+~locator('div > span:nth-child(3)')
+~XPath selectors
+~nth() positional selectors
+}
+
+::Q5: What does a smart locator strategy do?::
+{
+=Tries multiple fallback locator strategies in priority order
+~Finds the shortest possible CSS selector
+~Automatically rewrites HTML during testing
+~Pauses execution to allow manual review
+}
+
+::Q6: What does the repairLocator() function attempt to do?::
+{
+=Ask an LLM to provide a replacement selector when the original breaks
+~Retry the same selector up to 10 times
+~Refresh the page automatically
+~Switch the browser to headed mode
+}
+
+::Q7: What is the purpose of SelfHealingPage?::
+{
+=Detects broken selectors and generates repaired versions during test runtime
+~Removes all AI-generated locators
+~Optimizes Playwright performance
+~Records test execution videos automatically
+}
+
+::Q8: Where is the healing report typically stored or attached?::
+{
+=Attached to testInfo as healing-report.json
+~Saved to browser localStorage
+~Stored in cookies by default
+~Printed only to console with no file output
+}
+
+::Q9: What does an autonomous LLM-driven test agent rely on?::
+{
+=Screenshots + LLM reasoning to determine the next step
+~Hardcoded selectors defined in config
+~Fixed navigation sequences only
+~Network request mocks for all interactions
+}
+
+::Q10: What is a key limitation of LLM agents?::
+{
+=They require oversight and may choose suboptimal actions
+~They cannot take screenshots
+~They only work with Chromium
+~They disable Playwright’s auto-waiting
+}
+
+::Q11: What does the simple test agent loop require to operate?::
+{
+=A screenshot, the current page state, and an LLM decision
+~A predefined JSON test plan
+~Full application source code
+~Only element IDs
+}
+
+::Q12: What does the Computer Use Agent allow Claude to do?::
+{
+=Control the browser at pixel-level using tool calls
+~Write TypeScript directly without prompts
+~Modify Playwright internal APIs
+~Capture HAR files automatically
+}
+
+::Q13: In Computer Use mode, what is the purpose of tool_use blocks?::
+{
+=They specify browser actions like click, type, or move
+~They log test metrics to CI
+~They generate selectors automatically
+~They record network traces
+}
+
+::Q14: What kind of prompt improves AI-generated tests?::
+{
+=Structured prompts with constraints and examples
+~Random natural language instructions
+~Prompts without context
+~Prompts that forbid TypeScript
+}
+
+::Q15: What is one rule in Role + Constraint prompting?::
+{
+=Never use waitForTimeout()
+~Always use nth selectors
+~Avoid getByRole() locators
+~Prefer XPath whenever possible
+}
+
+::Q16: What is the STAR prompt structure used for?::
+{
+=Designing clear testing prompts (Situation, Task, Action, Result)
+~Generating random test data
+~Creating browser contexts
+~Mocking API calls
+}
+
+::Q17: What is migrateLocators.ts used for?::
+{
+=Modernizing spec files by replacing old locators
+~Converting TypeScript tests to Python
+~Generating screenshots for all tests
+~Refactoring test names automatically
+}
+
+::Q18: What is the purpose of AI-generated test data?::
+{
+=Produce realistic, varied inputs for form testing
+~Replace user prompts entirely
+~Generate random CSS selectors
+~Modify environment variables
+}
+
+::Q19: Why is few-shot prompting effective?::
+{
+=Examples help the LLM mimic desired code style
+~It forces the LLM to shorten outputs
+~It disables chain-of-thought reasoning
+~It removes the need for context
+}
+
+::Q20: Which statement best describes Layer 3 (Self-healing)?::
+{
+=AI repairs broken selectors automatically at runtime or CI
+~AI fully navigates the UI without instructions
+~AI writes entire test suites alone
+~AI only works inside your IDE
+}
+

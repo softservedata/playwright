@@ -1,0 +1,163 @@
+
+// Playwright Test Runner — Quiz (20 questions, medium difficulty, GIFT)
+
+::Q1: What does the Playwright Test Runner provide besides executing tests?::
+{
+=Built-in test discovery, parallelism, fixtures, reporting, and retries
+~Only a thin wrapper over browser automation
+~A replacement for Node.js runtime
+~A CI/CD pipeline tool
+}
+
+::Q2: Which command runs Playwright tests in headed mode?::
+{
+=npx playwright test --headed
+~npx playwright run --ui
+~npx playwright headed
+~npx playwright test --show
+}
+
+::Q3: What is the purpose of test.describe()?::
+{
+=To group related tests into logical sections
+~To declare global setup logic
+~To disable parallel execution
+~To create a new Playwright project
+}
+
+::Q4: Which hook runs before every individual test?::
+{
+=test.beforeEach
+~test.beforeAll
+~test.afterAll
+~test.afterEach
+}
+
+::Q5: What does test.only() do?::
+{
+=Runs only that test and ignores others in the file
+~Skips the test
+~Retries the test until it passes
+~Marks the test as expected to fail
+}
+
+::Q6: Which assertion auto-waits until the condition is met?::
+{
+=expect(locator).toBeVisible()
+~expect(value).toBe(5)
+~expect.soft(value).toMatch(/x/)
+~expect(page).toMatchSnapshot()
+}
+
+::Q7: What does expect.soft() allow?::
+{
+=Collecting multiple assertion failures without stopping the test
+~Retrying the whole test automatically
+~Running assertions in parallel
+~Skipping assertions based on browser
+}
+
+::Q8: Which config option controls the number of parallel workers?::
+{
+=workers
+~retries
+~timeout
+~expect.timeout
+}
+
+::Q9: What does fullyParallel: true enable?::
+{
+=All tests run in parallel, even within the same file
+~Each file runs serially by default
+~Only browsers run in parallel, not tests
+~Parallel screenshots during execution
+}
+
+::Q10: Which configuration section controls browser/device settings?::
+{
+=use
+~projects
+~reporter
+~hooks
+}
+
+::Q11: What is the purpose of projects in Playwright config?::
+{
+=To run tests across multiple browsers or environments
+~To define global hooks
+~To organize files on disk
+~To automatically generate documentation
+}
+
+::Q12: What does storageState allow?::
+{
+=Reusing authenticated browser session state across tests
+~Saving video and trace artifacts
+~Controlling where screenshots are stored
+~Injecting environment variables
+}
+
+::Q13: What does test.describe.serial() enforce?::
+{
+=Tests inside run sequentially, not in parallel
+~Tests inside run multiple times
+~Tests inside are skipped
+~Tests inside cannot contain hooks
+}
+
+::Q14: What does retries in config define?::
+{
+=How many times to retry a failing test
+~Maximum number of parallel workers
+~Number of browser contexts per worker
+~How many assertions can fail softly
+}
+
+::Q15: What does test.skip() do?::
+{
+=Marks the test as skipped and prevents execution
+~Runs the test only in specific environments
+~Causes the test to retry indefinitely
+~Marks the test as critical
+}
+
+::Q16: Which fixture provides the HTTP API testing context?::
+{
+=request
+~page
+~context
+~browser
+}
+
+::Q17: What does testInfo.retry indicate?::
+{
+=Current retry attempt index (0-based)
+~Total number of retries allowed
+~Milliseconds spent waiting for assertions
+~Whether the test is soft-failed
+}
+
+::Q18: What is the purpose of a setup project?::
+{
+=To run authentication or DB seeding before other projects
+~To speed up browser launch
+~To disable default fixtures
+~To collect coverage reports
+}
+
+::Q19: What does ignoreHTTPSErrors: true do?::
+{
+=Allows navigating to HTTPS sites with invalid certificates
+~Ignores failed API responses
+~Skips all failing SSL tests
+~Prevents browser redirects
+}
+
+::Q20: What does trace: 'on-first-retry' enable?::
+{
+=Trace recording only on the first retry of a failing test
+~Tracing every test execution
+~Tracing only test.describe blocks
+~Tracing disabled globally
+}
+

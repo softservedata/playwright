@@ -1,0 +1,20 @@
+::Q1::Which Playwright API is used to intercept network requests? {=page.route ~page.mock ~route.intercept}
+::Q2::Which route mode completely drops the request? {=abort ~fulfill ~continue}
+::Q3::Which option is used to return synthetic responses? {=fulfill ~abort ~fetch}
+::Q4::Which API allows modifying request headers before forwarding? {=route.continue ~route.fulfill ~route.abort}
+::Q5::Which URL pattern type supports regex? {=RegExp pattern ~glob pattern ~predicate only}
+::Q6::Which response property automatically sets Content-Type to JSON? {=json ~body ~path}
+::Q7::Which method proxies and modifies a real response? {=route.fetch + fulfill ~route.real ~route.proxy}
+::Q8::Which route scope affects all pages in a context? {=context.route ~page.route ~browser.route}
+::Q9::Which fulfill option serves a response from file? {=path ~file ~serve}
+::Q10::Which method simulates a network timeout error? {=route.abort('timedout') ~route.fulfill({timeout:true}) ~route.delay()}
+::Q11::What determines handler execution priority? {=Registration order ~Alphabetical order ~Pattern length}
+::Q12::Which method passes control to next matching handler? {=route.fallback ~route.continue ~route.pass}
+::Q13::Which feature records real network activity for replay? {=HAR file ~Proxy cache ~Mock cache}
+::Q14::Which handler simulates retry scenario? {=Stateful mock ~Static fulfill ~HAR replay}
+::Q15::Which route option limits mocks to N invocations? {=times ~limit ~repeat}
+::Q16::Which mock type stores CRUD state in memory? {=Fake backend class ~Static JSON mocks ~HAR mocks}
+::Q17::Which command records HAR from CLI? {=playwright open --save-har=... ~playwright record-har ~playwright capture}
+::Q18::Which abort reason simulates DNS failure? {=namenotresolved ~internetdisconnected ~failed}
+::Q19::Which mocking mode is best for full offline regression? {=HAR replay ~route.abort ~fake backend}
+::Q20::Which method removes all route handlers on a page? {=page.unrouteAll ~page.clearRoutes ~page.reset}

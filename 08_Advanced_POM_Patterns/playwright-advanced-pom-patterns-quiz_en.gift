@@ -1,0 +1,163 @@
+
+// Playwright Advanced POM Patterns — Quiz (20 questions, GIFT, English)
+
+::Q1: What problem does a Deep BasePage primarily solve in large test suites?::
+{
+=Reducing repeated logic by centralizing navigation hooks, waiting logic, and shared helpers
+~Improving screenshot resolution
+~Replacing the need for Page Objects entirely
+~Speeding up browser launch times
+}
+
+::Q2: What is the purpose of the onNavigated() hook in BasePage?::
+{
+=To allow subclasses to add page‑specific readiness checks after navigation
+~To disable auto-waiting temporarily
+~To automatically generate locators
+~To override Playwright’s routing system
+}
+
+::Q3: In a Fluent API, why should methods return Promise<this>?::
+{
+=To ensure chaining works correctly across inheritance hierarchies
+~To force all methods to return void
+~To prevent subclasses from defining their own methods
+~To disable async execution
+}
+
+::Q4: Which of the following is a benefit of Fluent API chaining?::
+{
+=Improves readability by making test steps read like a narrative
+~Reduces the number of locators on a page
+~Disables network requests automatically
+~Eliminates the need for BasePage
+}
+
+::Q5: What is the main issue with eager locator initialization?::
+{
+=All locators are created immediately even if not needed, increasing noise and fragility
+~Locators become immutable
+~Playwright refuses to evaluate them
+~They cannot be used inside tests
+}
+
+::Q6: What characterizes a lazy locator implemented with a getter?::
+{
+=It is created only when accessed
+~It is cached automatically
+~It cannot accept parameters
+~It must be declared in the constructor
+}
+
+::Q7: When should memoized lazy locators be used?::
+{
+=When the locator is deeply chained and used many times
+~When the locator must always be recreated
+~When the locator uses global CSS only
+~When the page has no dynamic elements
+}
+
+::Q8: Which scenario requires a dynamic locator method rather than a property?::
+{
+=Selecting an item based on a runtime value (e.g., getRowByName(name))
+~Selecting the page title
+~Finding a static header element
+~Accessing a permanent sidebar
+}
+
+::Q9: What is the purpose of AuthenticatedPage in an inheritance hierarchy?::
+{
+=To provide shared navigation components and readiness checks for logged-in pages
+~To disable user login tests
+~To manage service workers
+~To handle screenshot generation
+}
+
+::Q10: Which method in BaseFormPage determines whether form submission succeeded?::
+{
+=submitForm()
+~onNavigated()
+~fill()
+~validateInputs()
+}
+
+::Q11: What is the primary use case for mixins in Playwright POM architecture?::
+{
+=Adding cross-cutting behaviors (search, bulk actions) without deep inheritance chains
+~Replacing all Page Objects
+~Managing browser contexts
+~Creating test-specific fixtures
+}
+
+::Q12: What requirement must a class satisfy to be used with a mixin?::
+{
+=It must have a page property
+~It must implement BasePage directly
+~It must include a flow object
+~It must not use lazy locators
+}
+
+::Q13: What is the primary purpose of the Page Factory pattern?::
+{
+=To centralize Page Object construction and reduce direct use of "new"
+~To create browser contexts automatically
+~To generate TypeScript interfaces
+~To replace Playwright fixtures
+}
+
+::Q14: How does a multi-step Flow Object differ from a Page Object?::
+{
+=It orchestrates multiple pages into a single reusable journey
+~It replaces all page components
+~It manages low-level selectors directly
+~It is only used for login tests
+}
+
+::Q15: Why should a method that transitions to another page return Promise<NextPage>?::
+{
+=To allow chaining into the next page's API immediately
+~To avoid using async/await
+~To remove the need for a Page Factory
+~To disable network idle waits
+}
+
+::Q16: What is a key advantage of using Flow Objects for complex workflows?::
+{
+=They encapsulate multi-page steps, reducing duplication across tests
+~They eliminate the need for API mocking
+~They ensure tests never fail
+~They auto-generate screenshots
+}
+
+::Q17: Which pattern helps combine multiple behaviors (e.g., search + bulk actions) into a single page?::
+{
+=Mixins
+~Lazy locators
+~Flow Objects
+~Factories
+}
+
+::Q18: In advanced Page Object design, what are eager locators best suited for?::
+{
+=Elements that always exist on initial page load
+~Conditional UI blocks
+~Expensive nested locators
+~Items requiring parameters
+}
+
+::Q19: What should a test using PageFactory typically avoid?::
+{
+=Instantiating Page Objects manually with "new"
+~Using fixtures
+~Calling Playwright APIs
+~Using async/await syntax
+}
+
+::Q20: What is the overarching benefit of using all advanced POM patterns together?::
+{
+=Highly maintainable, scalable, and readable automation architecture
+~Fewer browser restarts
+~Automatic network throttling
+~Built-in visual comparison features
+}
+

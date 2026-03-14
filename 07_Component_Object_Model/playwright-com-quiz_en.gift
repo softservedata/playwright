@@ -1,0 +1,163 @@
+
+// Playwright Component Object Model — Quiz (20 questions, GIFT, English)
+
+::Q1: What does the Component Object Model (COM) add on top of POM?::
+{
+=Reusable component classes scoped to a root locator and shared across pages
+~Automatic test data generation per page
+~A replacement for Page Objects entirely
+~A visual regression layer only
+}
+
+::Q2: When should you extract a UI block into a component?::
+{
+=When the same UI block appears on 2+ pages or has its own internal logic
+~When it has exactly one locator and no behavior
+~Only when it uses XPath selectors
+~Only for pages without authentication
+}
+
+::Q3: What is the primary difference between BasePage and BaseComponent?::
+{
+=BaseComponent is scoped to a root locator; BasePage works at full page scope
+~BaseComponent handles API requests; BasePage handles UI
+~BaseComponent manages test fixtures; BasePage manages reporters
+~There is no practical difference
+}
+
+::Q4: Why is scoping child locators to the component root important?::
+{
+=It prevents matching elements outside the component and avoids ambiguity
+~It speeds up the Playwright installation step
+~It enables XPath only selectors
+~It disables auto-waiting
+}
+
+::Q5: Which method should component classes prefer for finding elements?::
+{
+=Use this.root.getBy*() / this.root.locator() inside the component
+~Use this.page.getBy*() for all lookups
+~Use document.querySelector() through evaluate()
+~Use hard-coded XPath expressions
+}
+
+::Q6: What is a good COM candidate among these?::
+{
+=NavBar that appears on every authenticated page
+~A single submit button on a unique page
+~A one-off hero banner on the home page
+~A static image with no interactions
+}
+
+::Q7: What does the NavBar component typically expose?::
+{
+=Navigation links, user menu actions, search, and state helpers
+~Only a single click() method
+~Only screenshot helpers
+~Only API request shortcuts
+}
+
+::Q8: In ToastNotification, what does waitForType('success') do?::
+{
+=Waits until a toast with data-type="success" appears
+~Closes any visible toast immediately
+~Switches the page to headless mode
+~Disables retries for assertions
+}
+
+::Q9: What is the responsibility of the Pagination component?::
+{
+=Navigate between pages, read current/total pages, and check enabled states
+~Render table rows dynamically
+~Store results in localStorage
+~Handle screenshot diffs
+}
+
+::Q10: How are nested components used on a page like DashboardPage?::
+{
+=The page composes shared components (NavBar, Sidebar, Toast) and page-specific ones (DataTable)
+~Each page inherits all components automatically without composition
+~Components can only be used at the test level, not inside pages
+~Nested components are forbidden for maintainability
+}
+
+::Q11: What does DataTable.waitForDataLoaded() ensure?::
+{
+=The table's loading overlay has disappeared (hidden)
+~All rows contain at least one cell
+~Sorting is set to ascending
+~The pagination moved to page 1
+}
+
+::Q12: Which pattern is recommended for component collections?::
+{
+=Wrap the list in a component and return typed sub-components for items
+~Return raw ElementHandle[] for iteration
+~Access items by CSS classes directly in tests
+~Use only nth(0) to pick the first item
+}
+
+::Q13: What is a typical method signature for retrieving a typed item from a list?::
+{
+=getCard(index: number): ProductCard
+~getCardByIndex(i: string): Locator
+~card(i: number): ElementHandle
+~select(index: number): any
+}
+
+::Q14: What is the purpose of the AddressForm component?::
+{
+=Encapsulate labeled inputs, filling, partial updates, and validation getters
+~Render server-side templates
+~Manage authentication tokens
+~Generate CSS styles
+}
+
+::Q15: Which API should a Modal component provide?::
+{
+=waitForOpen(), confirm(), cancel(), close(), getTitleText()
+~install(), build(), deploy(), destroy()
+~mount(), unmount(), hydrate(), snapshot()
+~openWindow(), closeWindow(), minimize(), maximize()
+}
+
+::Q16: How does UsersPage.deleteUser(userName) use components together?::
+{
+=Clicks a row action in DataTable, confirms in ConfirmDeleteModal, waits for success Toast
+~Directly calls a REST API and reloads the page
+~Uses XPath to remove the row from DOM
+~Opens DevTools and runs a script
+}
+
+::Q17: What is a COM best practice regarding nesting depth?::
+{
+=Keep nesting shallow (about 2–3 levels max)
+~Nest as many levels as necessary
+~Avoid components inside pages entirely
+~Use only a single global component
+}
+
+::Q18: Which scoping rule is emphasized for components?::
+{
+=Never reach outside the component root with this.page.getBy*() inside the component
+~Always reach outside the root for faster lookups
+~Prefer global CSS classes from the page head
+~Use window.find() for text search
+}
+
+::Q19: What is a good way to test a component that appears on many pages?::
+{
+=Create a dedicated component test file that navigates to any page where it exists and tests it in isolation
+~Only test it indirectly through long end‑to‑end flows
+~Mock it entirely and skip UI tests
+~Test it once and assume it never breaks
+}
+
+::Q20: What is the key benefit of COM across a large suite?::
+{
+=Eliminates duplication and centralizes maintenance for repeated UI blocks
+~Automatically increases test execution speed by 10x
+~Removes the need for fixtures
+~Generates network mocks for all tests
+}
+

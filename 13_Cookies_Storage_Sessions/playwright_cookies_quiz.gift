@@ -1,0 +1,20 @@
+::Q1::Which Playwright object isolates cookies, localStorage, and sessionStorage? {=BrowserContext ~Page ~Browser}
+::Q2::Which cookies disappear when the browser closes? {=Session cookies ~Persistent cookies ~Secure cookies}
+::Q3::Which storage API persists until explicitly cleared? {=localStorage ~sessionStorage ~IndexedDB}
+::Q4::What does storageState() capture? {=Cookies + localStorage + sessionStorage ~Cookies only ~localStorage only}
+::Q5::Which method adds cookies before navigation so they are sent with the first request? {=context.addCookies() ~page.addInitScript() ~context.clearCookies()}
+::Q6::Which cookie attribute prevents access from JavaScript? {=HttpOnly ~Secure ~SameSite}
+::Q7::Which method clears all cookies in a context? {=context.clearCookies() ~context.deleteCookies() ~page.clearCookies()}
+::Q8::Which statement about sessionStorage is true? {=It is per‑tab and does not persist across new tabs ~It persists like localStorage ~It syncs across all contexts}
+::Q9::Which API seeds localStorage before page scripts run? {=page.addInitScript() ~page.evaluate() ~context.addCookies()}
+::Q10::Which file contains stored authentication sessions? {=storageState JSON file ~cookies.txt ~localStorage.db}
+::Q11::Which method is used to restore a stored session for a new context? {=browser.newContext({ storageState }) ~context.restoreState() ~page.setStorageState()}
+::Q12::What is a benefit of API‑based authentication setup? {=Faster because no UI login is needed ~More secure than UI login ~Required for all apps}
+::Q13::Which pattern provides a logged‑in page to every test using a fixture? {=Fixture‑based authentication ~API‑based authentication ~Token injection}
+::Q14::What does SameSite=Lax help protect against? {=CSRF attacks ~XSS attacks ~Man‑in‑the‑middle attacks}
+::Q15::Which method simulates session expiry in tests? {=context.clearCookies({ name: 'session' }) ~page.addInitScript() ~page.evaluate()}
+::Q16::Which storage mechanism is used by service workers? {=Cache Storage ~localStorage ~sessionStorage}
+::Q17::Which API is required to read IndexedDB? {=page.evaluate() ~context.storageState() ~context.cookies()}
+::Q18::Which pattern is ideal for JWT‑only apps? {=Token injection ~Setup project ~Fixture‑based auth}
+::Q19::Which statement about multi‑role authentication is true? {=Each role needs its own storageState file ~Roles automatically switch in one context ~One storageState works for all roles}
+::Q20::Which attribute indicates a persistent cookie? {=Expires/Max‑Age ~HttpOnly ~SameSite}

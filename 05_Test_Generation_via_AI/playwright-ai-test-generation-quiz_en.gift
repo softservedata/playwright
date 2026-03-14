@@ -1,0 +1,163 @@
+
+// Playwright AI Test Generation — Quiz (20 questions, GIFT, English)
+
+::Q1: What are the three major stages of the AI test generation workflow?::
+{
+=Input → AI Generation → Output
+~Requirements → Execution → Reporting
+~Crawling → Parsing → Rendering
+~Analysis → Deployment → Monitoring
+}
+
+::Q2: Which items are examples of AI generation INPUT sources?::
+{
+=User stories, HTML/DOM, POM, screenshots, OpenAPI specs
+~Only screenshots and CSS files
+~Only existing test files
+~Only browser console logs
+}
+
+::Q3: Which part of the workflow performs prompt engineering and validation loops?::
+{
+=AI Generation stage
+~Input stage
+~Output stage
+~Deployment stage
+}
+
+::Q4: What does AI generate well according to the document?::
+{
+=Boilerplate, CRUD tests, form validation, repetitive patterns
+~Highly complex business rules
+~Security penetration tests
+~Performance threshold validations
+}
+
+::Q5: What does a user story–based generation typically produce?::
+{
+=A complete Playwright spec file with tests per acceptance criterion
+~Only comments and TODO messages
+~A list of CSS selectors
+~A database schema
+}
+
+::Q6: Which locator rules are enforced in the SYSTEM_PROMPT for generating tests?::
+{
+=Use getByRole/getByLabel/getByTestId/getByText; avoid CSS and IDs unless allowed
+~Use only CSS selectors
+~Use XPath for all elements
+~No restrictions are given
+}
+
+::Q7: What is a required naming convention for tests in generated specs?::
+{
+=should [expected behavior] when [condition]
+~test_[scenario]_auto
+~case-[number]
+~scenario: [description]
+}
+
+::Q8: Which Playwright function must NEVER be used according to constraints?::
+{
+=page.waitForTimeout()
+~page.locator()
+~page.goto()
+~expect.soft()
+}
+
+::Q9: Why is test.step() required for multi-step flows?::
+{
+=It improves readability and reporting for flows with 3+ actions
+~It retries steps automatically
+~It generates screenshots on each step
+~It validates TypeScript types
+}
+
+::Q10: What does the data‑driven test generator create?::
+{
+=A loop generating multiple tests from a matrix of inputs
+~A set of environment variables
+~A JSON documentation file only
+~A standalone fixture
+}
+
+::Q11: What is the AI-generated POM required to include?::
+{
+=Locators, actions, getters, navigation method
+~Only actions, no locators
+~Only locators, no methods
+~Only constructor and URL property
+}
+
+::Q12: Which locator priority is enforced in POM generation rules?::
+{
+=getByRole > getByLabel > getByTestId > getByText > CSS
+~CSS > getByText > getByRole
+~XPath > CSS > getByRole
+~All locators have equal priority
+}
+
+::Q13: What is forbidden when generating POM locators?::
+{
+=Using CSS class selectors and nth(0)
+~Using getByRole
+~Using page.locator at all
+~Using testId attributes
+}
+
+::Q14: What does iterative refinement accomplish?::
+{
+=Allows multiple rounds of improving generated tests
+~Automatically runs tests
+~Guarantees 100% coverage
+~Eliminates need for prompts
+}
+
+::Q15: What does the OpenAPI generator produce?::
+{
+=API tests for every endpoint and response code
+~Only documentation of schemas
+~Only POM classes
+~Only authentication tests
+}
+
+::Q16: What can screenshot‑based generation provide?::
+{
+=Analysis of interactive elements, POM, and spec generation
+~Only pixel‑diff tests
+~Only accessibility reports
+~Only CSS selectors for visible elements
+}
+
+::Q17: What is a required validation step for AI‑generated files?::
+{
+=TypeScript strict compilation (tsc --noEmit --strict)
+~Manual code formatting
+~Exporting screenshots to disk
+~Running Lighthouse audits
+}
+
+::Q18: What does the static checker look for?::
+{
+=Anti‑patterns like waitForTimeout, nth(0), $, any
+~Missing imports only
+~Unused variables only
+~Typos in comments
+}
+
+::Q19: What is the minimum AI review score recommended for approval?::
+{
+=7/10 or higher
+~3/10 or higher
+~10/10 only
+~No minimum score required
+}
+
+::Q20: What does the full end‑to‑end pipeline generate?::
+{
+=A POM, spec files per story, and a validated test suite
+~Only screenshots
+~Only TypeScript interfaces
+~Only JSON metadata
+}
+

@@ -1,0 +1,163 @@
+
+// Playwright Fixtures — Quiz (20 questions, GIFT, English)
+
+::Q1: What is the primary purpose of Playwright fixtures?::
+{
+=To provide dependency injection for tests with automatic setup and teardown
+~To bundle CSS selectors
+~To generate screenshots
+~To run tests in parallel
+}
+
+::Q2: What does the use() callback represent inside a fixture?::
+{
+=The point where the test runs
+~The teardown function only
+~A retry handler
+~A fixture timeout wrapper
+}
+
+::Q3: Which scope creates a fresh instance per test?::
+{
+='test'
+~'worker'
+~'browser'
+~'global'
+}
+
+::Q4: Which fixture scope allows sharing expensive resources across multiple tests?::
+{
+='worker'
+~'test'
+~'context'
+~'page'
+}
+
+::Q5: Which built‑in fixture provides a fresh page per test?::
+{
+=page
+~context
+~browser
+~request
+}
+
+::Q6: What is a typical use case for test‑scoped fixtures?::
+{
+=Creating fresh Page Objects or seeding test data
+~Creating global configuration
+~Managing multiple workers
+~Overriding the browser binary
+}
+
+::Q7: What is a typical use case for worker‑scoped fixtures?::
+{
+=Auth tokens, DB connections, or other expensive shared resources
+~Creating new pages for every action
+~Modifying DOM elements
+~Managing screenshots
+}
+
+::Q8: What is a key rule when writing a fixture?::
+{
+=await use() must be called exactly once
+~Multiple use() calls are required
+~Teardown must run before setup
+~Fixtures must return primitive values only
+}
+
+::Q9: What happens after await use() completes in a fixture?::
+{
+=Teardown logic runs
+~Playwright reloads the browser
+~A new worker is spawned
+~The fixture becomes immutable
+}
+
+::Q10: Why should page or context never be created in worker‑scoped fixtures?::
+{
+=They must remain test‑scoped for isolation
+~They are too slow to create in worker scope
+~They cannot run in headless mode
+~They require manual teardown
+}
+
+::Q11: What is the recommended way to share login/session state across tests?::
+{
+=Using storageState files or a worker‑scoped authenticated context
+~Logging in before every test
+~Passing cookies manually to each test
+~Using localStorage mocks
+}
+
+::Q12: What pattern allows multiple fixture modules to be combined into one export?::
+{
+=mergeTests()
+~test.combine()
+~joinFixtures()
+~compose()
+}
+
+::Q13: What does a teardown section typically contain?::
+{
+=Cleanup actions such as deleting test data or closing resources
+~Actions that run before setup
+~Retry logic for failed tests
+~Browser launch commands
+}
+
+::Q14: Which fixture type is best for generating and cleaning up API test data per test?::
+{
+=test‑scoped fixture
+~worker‑scoped fixture
+~browser‑scoped fixture
+~global setup fixture
+}
+
+::Q15: What does a worker‑scoped auth token fixture enable?::
+{
+=All tests in the same worker reuse the same token
+~Each test produces a new token
+~Tokens persist across test runs automatically
+~Token refresh is disabled
+}
+
+::Q16: What tool can attach logs, screenshots, or HTML dumps during teardown when a test fails?::
+{
+=testInfo
+~browser
+~context
+~worker
+}
+
+::Q17: What is the teardown order for fixtures?::
+{
+=Reverse order of their setup
+~Alphabetical order
+~Random per worker
+~User‑defined unless overwritten
+}
+
+::Q18: What is a hybrid fixture?::
+{
+=A fixture combining both UI (page) and API (request) helpers
+~A fixture that switches between workers
+~A fixture that creates multiple browsers
+~A fixture that disables test isolation
+}
+
+::Q19: What is a common mistake when using worker fixtures?::
+{
+=Sharing mutable state that can cause cross‑test interference
+~Using environment variables
+~Attaching logs to testInfo
+~Using async functions
+}
+
+::Q20: What is a valid rule for writing stable Playwright fixtures?::
+{
+=Never throw errors in teardown; swallow them with catch()
+~Always skip teardown
+~Avoid using await in fixtures
+~Force all fixtures to be synchronous
+}
+

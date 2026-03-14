@@ -1,0 +1,141 @@
+
+::Q1::Which Playwright artifact contains DOM, network logs, console output, and step-level screenshots? {
+~Screenshot
+~Video
+=Trace
+~Attachment
+}
+
+::Q2::What is the recommended screenshot strategy in CI according to the documentation? {
+~on
+=only-on-failure
+~off
+~always
+}
+
+::Q3::Which built‑in Playwright reporter is best suited for integrations and dashboards? {
+~html
+=json
+= json
+~list
+~dot
+}
+
+::Q4::Which command is used to open an HTML report after the test run? {
+=npx playwright show-report
+~npx playwright report
+~npx playwright open html
+~npx show-report
+}
+
+::Q5::Which trace configuration is recommended for CI to avoid slowing down every test? {
+~on
+~retain-on-failure
+=on-first-retry
+~off
+}
+
+::Q6::What file format is used by the JUnit reporter? {
+~json
+=xml
+~html
+~md
+}
+
+::Q7::Which artifact is automatically captured when a test fails if screenshot: 'only-on-failure' is enabled? {
+=Screenshot
+~Video
+~Trace
+~Attachment
+}
+
+::Q8::Which command merges blob reports into a single HTML report? {
+=npx playwright merge-reports --reporter html ./blob-reports
+~npx playwright merge blob
+~npx playwright html-merge
+~npx playwright combine-reports
+}
+
+::Q9::What is stored in network.jsonl inside a trace archive? {
+=All HTTP requests and responses
+~Browser console logs
+~DOM snapshots
+~Action timeline only
+}
+
+::Q10::Which Playwright configuration parameter controls where all artifacts (traces, videos, screenshots) are stored? {
+=outputDir
+~artifactsPath
+~storeDir
+~resultsFolder
+}
+
+::Q11::Which reporter provides a line‑by‑line console output ideal for local development? {
+=list
+~dot
+~json
+~html
+}
+
+::Q12::Which strategy keeps video files only for failing tests? {
+=retain-on-failure
+~on
+~off
+~on-first-retry
+}
+
+::Q13::What Playwright API allows attaching files such as logs or screenshots to the report? {
+=testInfo.attach
+~page.attach
+~context.attach
+~reporter.attach
+}
+
+::Q14::Which HTML report element shows individual test steps and failures? {
+~Home summary
+=Test detail page
+~Navigation bar
+~Timeline only
+}
+
+::Q15::Which command opens a trace archive for inspection? {
+=npx playwright show-trace
+~npx playwright open-trace
+~npx trace-viewer
+~npx playwright inspect-trace
+}
+
+::Q16::Which reporter updates a single line in the terminal showing current progress? {
+=line
+~list
+~dot
+~json
+}
+
+::Q17::Which artifact is best suited for understanding what happened *before* a failure? {
+=Video
+~Screenshot
+~JUnit XML
+~JSON report
+}
+
+::Q18::In Trace Viewer, which panel shows all HTTP requests and responses? {
+=Network panel
+~Console panel
+~Actions panel
+~Source panel
+}
+
+::Q19::Which Playwright feature allows grouping steps to improve report readability and trace navigation? {
+=test.step()
+~step.group()
+~context.step()
+~trace.step()
+}
+
+::Q20::What Playwright reporter is recommended in GitHub Actions to annotate pull requests? {
+=github
+~html
+~list
+~json
+}

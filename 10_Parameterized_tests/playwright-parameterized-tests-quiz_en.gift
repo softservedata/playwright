@@ -1,0 +1,163 @@
+
+// Playwright Parameterized Tests — Quiz (20 questions, GIFT, English)
+
+::Q1: What is the main benefit of parameterizing tests in Playwright?::
+{
+=Reducing duplication by running the same logic against many data sets
+~Speeding up browser launch times
+~Eliminating the need for assertions
+~Avoiding the use of fixtures entirely
+}
+
+::Q2: Does Playwright provide a built-in test.each API like Jest/Vitest?::
+{
+=No; idiomatic parameterization uses for...of loops or a small helper
+~Yes; use test.each directly from @playwright/test
+~Only via third-party plugins
+~Yes, but only in UI mode
+}
+
+::Q3: Which code pattern best represents idiomatic parameterization?::
+{
+=Iterating an array of cases with a for...of loop that registers tests
+~Creating unique spec files for each case
+~Using page.evaluate for dynamic test names
+~Duplicating test bodies with different constants
+}
+
+::Q4: Which scenarios are good candidates for parameterization?::
+{
+=Validation rules, boundary values, role-based access, multi-locale
+~End-to-end flows that differ completely per case
+~Stateful tests that depend on previous tests
+~One-off edge cases with unique logic
+}
+
+::Q5: What advantage does returning Promise<this> give in fluent page methods during parameterized runs?::
+{
+=It preserves chaining and subtype correctness across inherited pages
+~It disables retries on failure
+~It forces tests to run serially
+~It clears storageState between cases
+}
+
+::Q6: What’s the recommended way to mirror Jest’s test.each naming style if a team prefers it?::
+{
+=Create a tiny helper that expands cases and substitutes $placeholders in names
+~Use expect.each from @playwright/test
+~Enable experimental.each in config
+~Use projects instead of data arrays
+}
+
+::Q7: What is a safe way to trigger field validation for many input cases?::
+{
+=Fill the field and press Tab (blur) before asserting error state
+~Reload the page after each case
+~Use waitForTimeout between cases
+~Wrap assertions in try/catch without waiting
+}
+
+::Q8: What are Projects primarily used for in parameterization?::
+{
+=Running the same tests across browsers, devices, roles, or environments
+~Generating randomized datasets at runtime
+~Replacing fixtures entirely
+~Serializing test results to CSV
+}
+
+::Q9: Which external data source is most convenient for non-engineers to edit?::
+{
+=JSON or CSV files loaded into tests
+~TypeScript modules
+~Hard-coded arrays in spec files
+~Runtime API calls only
+}
+
+::Q10: What is a typical pattern for multi-role access tests?::
+{
+=Two-dimensional loops over roles and pages with can/cannot assertions
+~Duplicating the same test for each role
+~One project per test file only
+~Relying on console logs for verification
+}
+
+::Q11: What is a key rule when loading large test datasets from files?::
+{
+=Keep data out of the spec file and import/parse it in a utility
+~Inline all data in the spec for visibility
+~Always transform CSV to XML first
+~Prefer screenshots over assertions
+}
+
+::Q12: How can you tag parameterized tests for selective execution?::
+{
+=Attach tag arrays (e.g., ['@smoke']) to each generated test and filter with --grep
+~Add comments starting with #smoke in test names
+~Set process.env.TAG before running
+~Use only project names as filters
+}
+
+::Q13: What’s a recommended approach for boundary value generation?::
+{
+=Programmatically generate cases with helper functions (e.g., numeric/string boundaries)
+~Manually create dozens of near-duplicate tests
+~Rely on random values without checks
+~Only test min and max, skip middle values
+}
+
+::Q14: What is a good pattern for API contract testing with parameters?::
+{
+=Drive tests from an array of {method, path, expectedStatus, expectedShape} and loop
+~Use a single test that calls every endpoint sequentially
+~Mock all endpoints and skip assertions
+~Hard-code only the happy path
+}
+
+::Q15: Which approach shares authenticated state most efficiently across many parameterized UI tests?::
+{
+=Use a storageState file or a worker-scoped authenticated context
+~Log in before each parameterized test case
+~Share a single Page object across tests
+~Set cookies via evaluate() each time
+}
+
+::Q16: How do option fixtures help with parameterization?::
+{
+=They allow per-test overrides via test.use({ option: value }) with defaults
+~They disable parallelism for stability
+~They force all tests to run in the same project
+~They replace the need for environment variables
+}
+
+::Q17: What’s the benefit of filtering scenario arrays (e.g., in CI vs local)?::
+{
+=Run the full matrix in CI while skipping slow/stress cases locally
+~Guarantee identical runtime everywhere
+~Disable retries automatically
+~Prevent tagging from working
+}
+
+::Q18: How can you conditionally skip specific parameterized cases?::
+{
+=Call test.skip(condition, 'reason') inside each generated test
+~Throw an error to abort the case
+~Use console.log and continue
+~Change the test title to include [skipped]
+}
+
+::Q19: What is a common anti-pattern when parameterizing UI validation tests?::
+{
+=Using waitForTimeout between cases instead of relying on auto-waiting
+~Triggering validation with blur events
+~Using expect(...).toBeVisible()
+~Factoring data into arrays
+}
+
+::Q20: Which Playwright CLI option runs the same spec across selected projects (e.g., admin and manager)?::
+{
+=`--project=admin --project=manager`
+~`--role=admin,manager`
+~`--matrix=admin+manager`
+~`--profiles admin manager`
+}
+

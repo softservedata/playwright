@@ -1,0 +1,163 @@
+
+// Playwright Locators & Auto-waiting — Quiz (20 questions, GIFT, English)
+
+::Q1: What is a Locator in Playwright?::
+{
+=It is a lazy handle that describes how to find an element and resolves on actions/assertions with auto-retries
+~It is an immediate DOM node snapshot similar to querySelector()
+~It is a unique CSS selector generator that runs once per test
+~It is a server-side selector processed by the Playwright CLI
+}
+
+::Q2: When does a Locator actually perform a DOM lookup?::
+{
+=When you execute an action or an assertion on it (e.g., click, fill, expect)
+~Immediately when it is created with page.locator()
+~Only after navigation completes
+~Only when combined with page.waitForSelector()
+}
+
+::Q3: Which semantic locator maps to ARIA roles and accessible names?::
+{
+=getByRole()
+~getByLabel()
+~getByPlaceholder()
+~getByTestId()
+}
+
+::Q4: Which option makes getByRole name matching case-insensitive?::
+{
+=Use a regex, e.g., { name: /submit/i }
+~Set exact: true
+~Wrap the text with :has-text()
+~Pass { ci: true }
+}
+
+::Q5: What does page.getByTestId() select by default?::
+{
+=Elements with the attribute data-testid="..."
+~Elements with id attributes matching the value
+~Elements with any data-* attribute containing the value
+~Elements with title attributes matching the value
+}
+
+::Q6: How do you change the attribute used by getByTestId globally?::
+{
+=Configure use: { testIdAttribute: 'data-qa' } in playwright.config.ts
+~Set process.env.TEST_ID_ATTRIBUTE
+~Pass { attr: 'data-qa' } to each getByTestId call
+~Override page.getByTestId via monkey patching
+}
+
+::Q7: Which snippet correctly chains locators to scope within a form?::
+{
+=const submit = page.locator('#login-form').getByRole('button', { name: 'Sign in' });
+~const submit = page.getByRole('button', { name: 'Sign in' }).locator('#login-form');
+~const submit = page.getByText('#login-form').getByRole('Sign in');
+~const submit = page.locator('#login-form', 'button[name="Sign in"]');
+}
+
+::Q8: What does locator.filter({ has: X }) do?::
+{
+=Keeps only elements that contain a child matching locator X
+~Keeps only elements whose text equals X
+~Filters to elements visible on screen
+~Removes elements with attribute X
+}
+
+::Q9: Which methods pick specific elements from a matched set?::
+{
+=first(), last(), nth(index)
+~take(1), tail(), at(index)
+~slice(), pop(), shift()
+~one(), any(), each()
+}
+
+::Q10: What does locator.and(other) ensure?::
+{
+=The element must satisfy both locators
+~The element may match either locator
+~The current locator is replaced by other
+~The locator waits for network to be idle
+}
+
+::Q11: Which actions are guarded by actionability checks like visibility, stability, and enabled?::
+{
+=click(), fill(), check(), hover()
+~textContent(), innerText(), getAttribute()
+~allTextContents(), count(), evaluateAll()
+~waitForURL(), waitForLoadState(), waitForRequest()
+}
+
+::Q12: Which state does locator.waitFor({ state: 'detached' }) wait for?::
+{
+=Element removed from the DOM
+~Element present in DOM but hidden
+~Element visible to the user
+~Element finished all animations but still present
+}
+
+::Q13: What is the recommended alternative to arbitrary waits like page.waitForTimeout(3000)?::
+{
+=Wait for a meaningful signal such as expect(locator).toBeVisible() or page.waitForURL()
+~Increase the test timeout globally
+~Use double the timeout to be safe
+~Call isVisible() in a loop with setTimeout
+}
+
+::Q14: Which of the following is TRUE about page.$() and page.$$()?::
+{
+=They return ElementHandle snapshots and do not provide auto-waiting
+~They are preferred over locator() because they are faster
+~They automatically retry until at least one element is found
+~They are equivalent to getByRole() internally
+}
+
+::Q15: When is ElementHandle still acceptable to use?::
+{
+=When you need to pass a DOM node reference into page.evaluate for direct DOM work
+~When you want automatic retries on click
+~When you need strict mode to fail on multiple matches
+~When you want to chain semantic selectors
+}
+
+::Q16: Which assertion retries automatically until it passes or times out?::
+{
+=await expect(page.locator('.status')).toHaveText('Complete')
+~expect(3.14).toBeCloseTo(3.1, 1)
+~expect([1,2,3]).toHaveLength(3)
+~expect(user).toMatchObject({ role: 'admin' })
+}
+
+::Q17: Which option best describes the timeout hierarchy?::
+{
+=Assertion timeout < action timeout < navigation timeout < test timeout
+~Test timeout < action timeout < navigation timeout < assertion timeout
+~Action timeout < test timeout < assertion timeout < navigation timeout
+~Navigation timeout < assertion timeout < action timeout < test timeout
+}
+
+::Q18: Which locator extension selects parents containing a matching child?::
+{
+=:has()
+~:has-text()
+~:visible
+~:text-is()
+}
+
+::Q19: Which call is an anti-pattern due to race conditions with auto-waiting?::
+{
+=if (await button.isVisible()) { await button.click(); }
+~await expect(button).toBeVisible(); await button.click();
+~await button.click();
+~await button.click({ timeout: 5000 });
+}
+
+::Q20: Which method extracts all visible texts from multiple matching elements at once?::
+{
+=allInnerTexts()
+~allTextContents()
+~innerText()
+~textContent()
+}
+
